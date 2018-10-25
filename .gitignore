@@ -1,0 +1,11 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+*.dtbcache
+/src/Nyzon/.vs/Nyzon/v15
+/src/Nyzon/Nyzon.Core/bin/Debug/netstandard2.0
+/src/Nyzon/Nyzon.Core/obj
+/src/Nyzon/Nyzon.Windows/bin/Debug
+/src/Nyzon/Nyzon.Windows/obj/Debug
