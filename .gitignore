@@ -9,3 +9,5 @@
 /src/Nyzon/Nyzon.Core/obj
 /src/Nyzon/Nyzon.Windows/bin/Debug
 /src/Nyzon/Nyzon.Windows/obj/Debug
+/src/Nyzon/Nyzon.Console/bin
+/src/Nyzon/Nyzon.Console/bin-intermediates
