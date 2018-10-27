@@ -14,10 +14,19 @@ enum ConsolePrefixes { Info, Debug, Warning, Error, Trace };
 std::string GetPrefix(ConsolePrefixes prefix);
 
 // Prints a line to the console with custom foreground
-void PrintLine(const char* text, ConsoleColors foreground);
+void PrintLine(std::string text, ConsoleColors foreground);
 
 // Prints a line to the console with custom foreground and a prefix
-void PrintLine(const char* text, ConsoleColors foreground, ConsolePrefixes prefix);
+void PrintLine(std::string text, ConsoleColors foreground, ConsolePrefixes prefix);
+
+// Prints a line to the console and sets the appropiated foreground color to the prefix
+void PrintColoredPrefix(std::string text, ConsolePrefixes prefix);
 
 // Prints a line to the console
-void PrintLine(const char* text);
+void PrintLine(std::string text);
+
+void LogDebug(std::string text);
+void LogInformation(std::string text);
+void LogWarning(std::string text);
+void LogError(std::string text);
+void LogTrace(std::string text);

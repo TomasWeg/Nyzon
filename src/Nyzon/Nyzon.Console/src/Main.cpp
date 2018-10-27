@@ -1,8 +1,8 @@
 #include "Logging/Logging.h"
 
+// Application entry point
 int main()
 {
-	PrintLine("Hello World");
 	// Keep console opened
 	std::cin.get();
 }
