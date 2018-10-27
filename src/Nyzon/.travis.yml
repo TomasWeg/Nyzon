@@ -1,2 +1,3 @@
-language:csharp
-solution:Nyzon.sln
+language: csharp
+solution: Nyzon.sln
+dotnet: 2.1
