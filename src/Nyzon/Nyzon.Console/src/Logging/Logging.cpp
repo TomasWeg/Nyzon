@@ -2,7 +2,7 @@
 #include "..\datetime\datetime.h"
 
 // Returns the string name of an prefix enumerator
-std::string GetPrefix(ConsolePrefixes prefix)
+std::string Logging::GetPrefix(ConsolePrefixes prefix)
 {
 	switch (prefix)
 	{
@@ -23,7 +23,7 @@ std::string GetPrefix(ConsolePrefixes prefix)
 }
 
 // Prints a line to the console with custom foreground
-void PrintLine(std::string text, ConsoleColors foreground)
+void Logging::PrintLine(std::string text, ConsoleColors foreground)
 {
 	if (foreground == Red)
 		std::cout << "[" << currentDateTime() << "] " << termcolor::red << text << termcolor::reset << std::endl;
@@ -42,9 +42,9 @@ void PrintLine(std::string text, ConsoleColors foreground)
 }
 
 // Prints a line to the console withc custom foreground and a prefix
-void PrintLine(std::string text, ConsoleColors foreground, ConsolePrefixes prefix)
+void Logging::PrintLine(std::string text, ConsoleColors foreground, ConsolePrefixes prefix)
 {
-	if(foreground == Red)
+	if (foreground == Red)
 		std::cout << "[" << currentDateTime() << "] [" << GetPrefix(prefix) << "] " << termcolor::red << text << termcolor::reset << std::endl;
 	else if (foreground == Green)
 		std::cout << "[" << currentDateTime() << "] [" << GetPrefix(prefix) << "] " << termcolor::green << text << termcolor::reset << std::endl;
@@ -61,7 +61,7 @@ void PrintLine(std::string text, ConsoleColors foreground, ConsolePrefixes prefi
 }
 
 // Prints a line to the console and sets the appropiated foreground color to the prefix
-void PrintColoredPrefix(std::string text, ConsolePrefixes prefix)
+void Logging::PrintColoredPrefix(std::string text, ConsolePrefixes prefix)
 {
 	if (prefix == Warning)
 		std::cout << "[" << currentDateTime() << "]" << termcolor::yellow << " [" << GetPrefix(prefix) << "] " << termcolor::reset << text << termcolor::reset << std::endl;
@@ -70,41 +70,41 @@ void PrintColoredPrefix(std::string text, ConsolePrefixes prefix)
 	else if (prefix == Trace)
 		std::cout << "[" << currentDateTime() << "]" << termcolor::magenta << " [" << GetPrefix(prefix) << "] " << termcolor::reset << text << termcolor::reset << std::endl;
 	else
-		PrintLine(text, White, prefix);
+		Logging::PrintLine(text, White, prefix);
 }
 
 // Prints a line to the console
-void PrintLine(std::string text)
+void Logging::PrintLine(std::string text)
 {
 	PrintLine(text, White, Info);
 }
 
 // Logs a debug message to the console
-void LogDebug(std::string text)
+void Logging::LogDebug(std::string text)
 {
 	PrintColoredPrefix(text, Debug);
 }
 
 // Logs an informative message to the console
-void LogInformation(std::string text)
+void Logging::LogInformation(std::string text)
 {
 	PrintColoredPrefix(text, Info);
 }
 
 // Logs a trace message to the console
-void LogTrace(std::string text)
+void Logging::LogTrace(std::string text)
 {
 	PrintColoredPrefix(text, Trace);
 }
 
 // Logs a warning message to the console
-void LogWarning(std::string text)
+void Logging::LogWarning(std::string text)
 {
 	PrintColoredPrefix(text, Warning);
 }
 
 // Logs a error message to the console
-void LogError(std::string text)
+void Logging::LogError(std::string text)
 {
-	PrintColoredPrefix(text, Error);
+	Logging::PrintColoredPrefix(text, Error);
 }
